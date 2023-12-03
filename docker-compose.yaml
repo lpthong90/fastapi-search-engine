@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    image: app_image
+    container_name: app_1
+    networks:
+      - demo_net
+    ports:
+      - 8000:80
+    environment:
+      - SQLALCHEMY_DATABASE_URL=postgresql://username:password@app_db/dev_db
+    depends_on:
+      - app_db
+
+  app_db:
+    image: postgres:12.1-alpine
+    container_name: app_db_1
+    networks:
+      - demo_net
+    volumes:
+      - pg_app_db:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=dev_db
+  
+volumes:
+  pg_app_db:
+
+networks:
+  demo_net:

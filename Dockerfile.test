@@ -1,0 +1,19 @@
+FROM python:3.11.3
+
+WORKDIR /code
+
+COPY ./requirements.txt /code/requirements.txt
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+COPY ./pytest.sh /code/pytest.sh
+COPY ./migrations /code/migrations
+COPY ./alembic.test.ini /code/alembic.ini
+COPY ./app /code/app
+
+RUN alembic upgrade head
+RUN cd app
+
+# CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["pytest", "app"]
