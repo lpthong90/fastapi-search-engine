@@ -57,17 +57,9 @@ def search_employee(cols: list[str],
           status_conds.append(Employee.status == str(EmployeeStatus[status.upper()].value))
       query = query.filter(or_(*status_conds))
 
-  if 'location' in params and params['location'] is not None:
-    query = query.filter(Employee.location == params['location'])
-
-  if 'company' in params and params['company'] is not None:
-    query = query.filter(Employee.company == params['company'])
-
-  if 'department' in params and params['department'] is not None:
-    query = query.filter(Employee.department == params['department'])
-
-  if 'position' in params and params['position'] is not None:
-    query = query.filter(Employee.position == params['position'])
+  for col in ['location', 'company', 'department', 'position']:
+    if col in params and params[col] is not None:
+      query = query.filter(getattr(Employee, col) == params[col])
 
   results = query.limit(limit).all()
   return list(map(lambda result: dict(zip(cols, result)), results))

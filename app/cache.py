@@ -12,6 +12,10 @@ def get_cache(key):
   if key in global_cache:
     return global_cache[key]
 
+def reset_cache():
+  global global_cache
+  global_cache = {}
+
 def timed_lru_cache(seconds: int, maxsize: int = 128):
   def wrapper_cache(func):
     func = lru_cache(maxsize=maxsize)(func)
