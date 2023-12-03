@@ -1,6 +1,8 @@
 # Search Engine - FastAPI
 The project is a simple microservice which populates the employee search directory for a HR company.
 
+![Web UI](https://github.com/lpthong90/fastapi-search-engine/blob/91bfd9c7a76425e177136a7df3dfc68c05b2bb92/images/ui.png)
+
 **Source Code**: <a  href="https://github.com/lpthong90/fastapi-search-engine"  target="_blank">https://github.com/lpthong90/fastapi-search-engine</a>
 
 ## Features:
@@ -9,7 +11,8 @@ Following are all functional and non-functional requirements which are allowed i
 
 **Functional requirements:**
 
--  [x]  The service is containerized .
+-  [x] Only implement the search api.
+-  [x] The service is containerized .
 -  [x] The API information is sharable in an **OPEN API** format
 -  [x] The API is unit tested
 -  [x] No external library is used for rate-limiting .
