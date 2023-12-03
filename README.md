@@ -1,6 +1,8 @@
 # Search Engine - FastAPI
 The project is a simple microservice which populates the employee search directory for a HR company.
 
+![Web UI](https://github.com/lpthong90/fastapi-search-engine/blob/91bfd9c7a76425e177136a7df3dfc68c05b2bb92/images/ui.png)
+
 **Source Code**: <a  href="https://github.com/lpthong90/fastapi-search-engine"  target="_blank">https://github.com/lpthong90/fastapi-search-engine</a>
 
 ## Features:
@@ -9,7 +11,8 @@ Following are all functional and non-functional requirements which are allowed i
 
 **Functional requirements:**
 
--  [x]  The service is containerized .
+-  [x] Only implement the search api.
+-  [x] The service is containerized .
 -  [x] The API information is sharable in an **OPEN API** format
 -  [x] The API is unit tested
 -  [x] No external library is used for rate-limiting .
@@ -32,27 +35,30 @@ We have a list of assumptions:
 
 As initialized configuration, we have 3 users as following:
 
-|        |Username|Organization|Access-Token|Display Columns |
-|--------|--------|------------|------------|------------|
-|User A  |`user_a`|`org-a`     |`token_a`   |`contact_info` `department` `location` `position`
-|User B  |`user_b`|`org-b`     |`token_b`   |`department` `location` `position`
-|User C  |`user_c`|`org-c`     |`token_c`   |`position`
+|           |Username|Organization|Access-Token|Display Columns |
+|-----------|--------|------------|------------|------------|
+|User A     |`user_a`|`org-a`     |`token_a`   |`contact_info` `department` `location` `position`
+|User B     |`user_b`|`org-b`     |`token_b`   |`department` `location` `position`
+|User C     |`user_c`|`org-c`     |`token_c`   |`position`
 
 
 ## Requirements
 
 docker 24.0.6+
+
 docker-compose 3.7+
 
 ## Test
 
 > $ docker build -t  test-search-engine -f Dockerfile.test .
+>
 > $ docker run --rm test-search-engine
 
 ## Installation
 
 ### Run it
-> $ docker-compose up --build
+
+> $ docker-compose up --build -d
 
 ### Initialize data
 
@@ -61,6 +67,7 @@ Run migration:
 
 Generate data:
 > $ export DB_URL=postgresql://username:password@app_db/dev_db
+> 
 > $ docker exec -i app_db_1 psql -d DB_URL < generate_data.sql
 
 ### Check it
@@ -97,7 +104,7 @@ You will see the JSON response as:
 ]
 ```
 
-You can test with 3 access-tokens which are belong to 3 users respectively: `token_a`, `token_b`, `token_c`
+You can check with 3 access-tokens which are belong to 3 users respectively: `token_a`, `token_b`, `token_c`
 
 
 ### Interactive API docs
@@ -106,8 +113,12 @@ Now go to  [](http://127.0.0.1:8000/docs)[http://127.0.0.1:8000/docs](http://127
 
 You will see the automatic interactive API documentation:
 
+![Api Docs](https://github.com/lpthong90/fastapi-search-engine/blob/main/images/docs.png)
+
 ### Sharable OpenAPI JSON file
 
 Open your browser at  [http://127.0.0.1:8000/openapi.json](http://127.0.0.1:8000/openapi.json).
 
 You will see OpenAPI json format file:
+
+![OpenAPI Json File](https://github.com/lpthong90/fastapi-search-engine/blob/eea59139290fee1971526354c94b7cff0d839374/images/openapi.png)
