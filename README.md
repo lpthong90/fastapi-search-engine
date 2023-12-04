@@ -68,7 +68,7 @@ Run migration:
 Generate data:
 > $ export DB_URL=postgresql://username:password@app_db/dev_db
 > 
-> $ docker exec -i app_db_1 psql -d DB_URL < generate_data.sql
+> $ docker exec -i app_db_1 psql -d $DB_URL < generate_data.sql
 
 ### Check it
 
