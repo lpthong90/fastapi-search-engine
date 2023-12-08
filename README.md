@@ -5,7 +5,8 @@ The project is a simple microservice which populates the employee search directo
 
 The following is filter options for the Search API:
 
-![Filter Options](https://github.com/lpthong90/fastapi-search-engine/blob/559e87645035ae11a15b5007e0b614bd7c6bbbf4/images/filters.png)
+<img src="https://github.com/lpthong90/fastapi-search-engine/blob/22ba8536291bc1a006d7828b813aeb88ff339620/images/filters.png" alt="filter_options" width="500"/>
+
 
 **Source Code**: <a  href="https://github.com/lpthong90/fastapi-search-engine"  target="_blank">https://github.com/lpthong90/fastapi-search-engine</a>
 
