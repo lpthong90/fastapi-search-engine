@@ -3,6 +3,9 @@ The project is a simple microservice which populates the employee search directo
 
 ![Web UI](https://github.com/lpthong90/fastapi-search-engine/blob/91bfd9c7a76425e177136a7df3dfc68c05b2bb92/images/ui.png)
 
+The following is filter options for the Search API:
+![Filter Options](...)
+
 **Source Code**: <a  href="https://github.com/lpthong90/fastapi-search-engine"  target="_blank">https://github.com/lpthong90/fastapi-search-engine</a>
 
 ## Features:
@@ -88,20 +91,25 @@ curl -X 'GET' \
 ``` 
 You will see the JSON response as:
 ```
-[
-  {
-    "id": 5,
-    "first_name": "first_name-45c48",
-    "last_name": "last_name-cfcd2",
-    "contact_info": "contact_info-c9f0f",
-    "organization": "org-a",
-    "department": "department-6",
-    "position": "position-71",
-    "location": "location-09",
-    "status": "active"
-  }
-  ...
-]
+{
+  "limit": 10,
+  "has_next_page": true,
+  "has_previous_page": false,
+  "employees": [
+    {
+      "id": 5,
+      "first_name": "first_name-45c48",
+      "last_name": "last_name-cfcd2",
+      "contact_info": "contact_info-c9f0f",
+      "organization": "org-a",
+      "department": "department-6",
+      "position": "position-71",
+      "location": "location-09",
+      "status": "active"
+    }
+    ...
+  ]
+}
 ```
 
 You can check with 3 access-tokens which are belong to 3 users respectively: `token_a`, `token_b`, `token_c`
