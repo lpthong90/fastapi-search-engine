@@ -51,7 +51,7 @@ async def authenticate_middleware(request: Request, call_next):
 def read_root():
     return {"Hello": "World"}
 
-@app.get("/search", response_model=list[schemas.Employee], response_model_exclude_none=True)
+@app.get("/search", response_model=schemas.EmployeePage, response_model_exclude_none=True)
 def search(
     status: List[str] = Query(None),
     location: str | None = None,
@@ -59,10 +59,9 @@ def search(
     department: str | None = None,
     position: str | None = None,
     limit: int | None = 10,
-    page: int | None = 1,
+    last_seen_id: int | None = None,
     access_token: Annotated[Union[str, None], Header(alias='Access-Token')] = None
   ):
-
   status_str = '' if status is None else ','.join(sorted(status))
   return search_engine.search(
     token=access_token, 
@@ -72,5 +71,5 @@ def search(
     department=department, 
     position=position, 
     limit=limit, 
-    page=page
+    last_seen_id=last_seen_id,
   )

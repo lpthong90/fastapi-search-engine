@@ -22,3 +22,9 @@ class Employee(BaseModel):
   @field_serializer('status')
   def serialize_status(self, status: str, _info):
     return STATUS_TO_TEXT[status]
+
+class EmployeePage(BaseModel):
+  limit: int
+  has_next_page: bool
+  has_previous_page: bool
+  employees: list[Employee]
