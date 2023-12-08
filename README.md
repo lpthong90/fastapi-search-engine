@@ -4,7 +4,8 @@ The project is a simple microservice which populates the employee search directo
 ![Web UI](https://github.com/lpthong90/fastapi-search-engine/blob/91bfd9c7a76425e177136a7df3dfc68c05b2bb92/images/ui.png)
 
 The following is filter options for the Search API:
-![Filter Options](...)
+
+![Filter Options](https://github.com/lpthong90/fastapi-search-engine/blob/559e87645035ae11a15b5007e0b614bd7c6bbbf4/images/filters.png)
 
 **Source Code**: <a  href="https://github.com/lpthong90/fastapi-search-engine"  target="_blank">https://github.com/lpthong90/fastapi-search-engine</a>
 
@@ -85,7 +86,7 @@ You will see the JSON response as:
 On the other hand, you can test search employee feature as following:
 ```
 curl -X 'GET' \
-  'http://localhost:8000/search?status=active&status=terminated&limit=10&page=1' \
+  'http://localhost:8000/search?status=active&status=terminated&limit=10' \
   -H 'accept: application/json' \
   -H 'Access-Token: token_a'
 ``` 
